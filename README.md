@@ -63,7 +63,7 @@ Retrieve a single book by ID:
     "author": "George Orwell"
 }
 ```
-###### POST /books
+##### POST /books
 Create a new book:
 
 Request body:
