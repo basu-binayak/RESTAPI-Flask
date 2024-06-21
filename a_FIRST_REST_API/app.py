@@ -17,19 +17,25 @@ app = Flask(__name__)
 '''
 Flask Object Creation:
 
-Flask: As mentioned earlier, Flask is a class provided by the Flask framework that represents a Flask application. It is used to create instances of Flask applications.
+Flask: As mentioned earlier, Flask is a class provided by the Flask framework that represents a Flask application. 
+It is used to create instances of Flask applications.
 
 __name__ Argument:
 
-__name__: In Python, __name__ is a special variable that represents the name of the current module. When the Python interpreter runs a module, it sets __name__ to '__main__' if the module being run is the main program. If the module is being imported from another module, __name__ will be set to the module's name.
+__name__: In Python, __name__ is a special variable that represents the name of the current module. 
+When the Python interpreter runs a module, it sets __name__ to '__main__' if the module being run is the main program. 
+If the module is being imported from another module, __name__ will be set to the module's name.
 
 Application Instance:
 
-app = Flask(__name__): This line creates an instance of a Flask application and assigns it to the variable app. The __name__ argument is typically used by Flask to determine the root path of the application. This helps Flask to locate resources such as templates and static files relative to the location of the module where Flask is instantiated.
+app = Flask(__name__): This line creates an instance of a Flask application and assigns it to the variable app. 
+The __name__ argument is typically used by Flask to determine the root path of the application. 
+This helps Flask to locate resources such as templates and static files relative to the location of the module where Flask is instantiated.
 
 Application Configuration:
 
-The Flask(__name__) instantiation initializes the Flask application with sensible defaults, but you can further configure your Flask app by setting various configuration options using app.config.
+The Flask(__name__) instantiation initializes the Flask application with sensible defaults, but you can further configure your 
+Flask app by setting various configuration options using app.config.
 '''
 
 # storing the data (for simpliciity we are not using a database)
@@ -59,19 +65,26 @@ In Flask, setting up a route involves two main components:
 
 Endpoint Decorator:
 
-The endpoint decorator, such as @app.route("/music_stores"), marks the URL path (/music_stores) that the Flask application should recognize and handle. This decorator essentially tells Flask that when a client sends a request to /music_stores, it should invoke the associated function.
+The endpoint decorator, such as @app.route("/music_stores"), marks the URL path (/music_stores) that the Flask application should 
+recognize and handle. This decorator essentially tells Flask that when a client sends a request to /music_stores, it should invoke 
+the associated function.
 
 Route Handling Function:
 
-The function decorated by @app.route("/music_stores"), let's say def get_music_stores(), defines what should happen when the /music_stores endpoint is accessed. This function handles the request by executing specific logic, which might involve querying a database, processing data, or performing other tasks.
+The function decorated by @app.route("/music_stores"), let's say def get_music_stores(), defines what should happen when the /music_stores 
+endpoint is accessed. This function handles the request by executing specific logic, which might involve querying a database, processing data, 
+or performing other tasks.
 
-#-----------------------------------------------------------------------------------#
 
-At the end of its execution, this function typically returns a response. For REST APIs, this response is commonly in JSON format, although Flask supports returning various types of data such as HTML, XML, plain text, or custom formats like YAML.
+At the end of its execution, this function typically returns a response. For REST APIs, this response is commonly in JSON format, although 
+Flask supports returning various types of data such as HTML, XML, plain text, or custom formats like YAML.
 
-The return value of the function gets converted into an HTTP response that Flask sends back to the client(here I have used Insomnia as the client) that made the request.
+The return value of the function gets converted into an HTTP response that Flask sends back to the client(here I have used Insomnia as the client) 
+that made the request.
 
-In essence, the endpoint decorator links a specific URL path (/music_stores in this case) to a Python function (get_music_stores()), which determines how the server responds to requests made to that URL. This separation of concerns allows Flask applications to efficiently handle different routes and their corresponding functionalities.
+In essence, the endpoint decorator links a specific URL path (/music_stores in this case) to a Python function (get_music_stores()), which 
+determines how the server responds to requests made to that URL. This separation of concerns allows Flask applications to efficiently handle 
+different routes and their corresponding functionalities.
 '''
 
 # Retrieve all the music stores and their songs
@@ -103,13 +116,17 @@ def create_music_store():
 
 '''
 NOTE on STATUS CODE:
-In Flask, HTTP status codes indicate the outcome of a server request. They inform the client whether the request was successful, encountered an error, or requires further action. Here's a breakdown of common status codes and how Flask handles them:
+In Flask, HTTP status codes indicate the outcome of a server request. They inform the client whether the request was successful, 
+encountered an error, or requires further action. Here's a breakdown of common status codes and how Flask handles them:
 
-200 OK: This status code indicates that the request has succeeded. It is commonly used for successful GET requests where the server returns requested data.
+200 OK: This status code indicates that the request has succeeded. It is commonly used for successful GET requests where the server 
+returns requested data.
 
-201 Created: This status code indicates successful creation of a resource. It is typically returned by POST requests when a new resource (such as a store in your example) has been successfully created.
+201 Created: This status code indicates successful creation of a resource. It is typically returned by POST requests when a new resource 
+(such as a store in your example) has been successfully created.
 
-404 Not Found: This status code indicates that the server could not find the requested resource. It is commonly used when a client requests a URL that does not exist on the server.
+404 Not Found: This status code indicates that the server could not find the requested resource. It is commonly used when a client requests 
+a URL that does not exist on the server.
 '''
 
 @app.route('/music_store/<string:music_store_name>/songs' , methods =['POST'])
