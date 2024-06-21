@@ -107,6 +107,6 @@ No body required.
 1. SOAP (Simple Object Access Protocol): A protocol for exchanging structured information in web services, often using XML. It is more rigid and requires more bandwidth due to its XML messaging format.
 2. GraphQL: An alternative to REST, where clients can request specific data structures, reducing over-fetching and under-fetching of data.
 
-####Conclusion
+#### Conclusion
 
 A REST API is a powerful and flexible way to create web services. It leverages HTTP methods and a stateless, client-server architecture to provide a scalable and maintainable way to interact with resources. Understanding and implementing REST principles can greatly enhance the design and functionality of web applications.
