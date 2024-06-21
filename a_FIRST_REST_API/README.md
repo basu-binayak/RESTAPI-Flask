@@ -10,9 +10,9 @@ In this section we'll make a **simple REST API** that allows us to:
 
 ### Create music stores
 **Request:**
-
-POST /store {"name": "Music Store"}
-
+```
+POST /music_stores {"name": "Music Store"}
+```
 **Response:**
 
 ```json
@@ -23,35 +23,71 @@ POST /store {"name": "Music Store"}
 **Request:**
 
 ```
-POST /store/Music Store/song {"name": "Shape of You", "artist": "Ed Sheeran", "price": 1.29}
+POST /store/<Music Store>/song
+[
+	{"name": "Rolling in the Deep",
+	 "artist": "Adele",
+	 "price": 1.49},
+	{"name": "Despacito",
+	 "artist": "Luis Fonsi ft. Daddy Yankee",
+	 "price": 1.29},
+	{"name": "Hotel California",
+	 "artist": "Eagles",
+	 "price": 1.79}
+]
 ```
 **Response:**
 
 ```json
-{"name": "Shape of You", "artist": "Ed Sheeran", "price": 1.29}
+
 ```
 
 ### Retrieve all music stores and their songs
 **Request:**
 ```
-GET /store
+GET /music_stores
 ```
 **Response:**
 
 ```json
 {
-    "stores": [
-        {
-            "name": "Music Store",
-            "songs": [
-                {
-                    "name": "Shape of You",
-                    "artist": "Ed Sheeran",
-                    "price": 1.29
-                }
-            ]
-        }
-    ]
+	"All Music Stores": [
+		{
+			"name": "Music Store A",
+			"songs": [
+				{
+					"artist": "Ed Sheeran",
+					"name": "Shape of You",
+					"price": 1.29
+				},
+				{
+					"artist": "The Weeknd",
+					"name": "Blinding Lights",
+					"price": 1.19
+				},
+				{
+					"artist": "Tones and I",
+					"name": "Dance Monkey",
+					"price": 0.99
+				}
+			]
+		},
+		{
+			"name": "Music Store B",
+			"songs": [
+				{
+					"artist": "Adele",
+					"name": "Someone Like You",
+					"price": 1.49
+				},
+				{
+					"artist": "Mark Ronson ft. Bruno Mars",
+					"name": "Uptown Funk",
+					"price": 1.39
+				}
+			]
+		}
+	]
 }
 ```
 ### Get a particular music store
