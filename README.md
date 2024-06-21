@@ -52,4 +52,61 @@ Retrieve a list of books:
     {"id": 1, "title": "1984", "author": "George Orwell"},
     {"id": 2, "title": "To Kill a Mockingbird", "author": "Harper Lee"}
 ]
+```
+##### GET /books/1
+Retrieve a single book by ID:
 
+```json
+{
+    "id": 1,
+    "title": "1984",
+    "author": "George Orwell"
+}
+```
+###### POST /books
+Create a new book:
+
+Request body:
+```json
+{
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald"
+}
+```
+Response body (created resource):
+```json
+{
+    "id": 3,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald"
+}
+```
+##### PUT /books/1
+Update an existing book:
+
+Request body:
+```json
+{
+    "title": "1984",
+    "author": "George Orwell"
+}
+```
+##### DELETE /books/1
+Delete a book:
+
+No body required.
+
+#### Benefits of REST APIs
+
+1. Scalability: Due to statelessness and layered architecture, REST APIs can handle large numbers of requests by distributing the load across multiple servers.
+2. Flexibility: REST APIs can return different formats (JSON, XML, HTML) and are easily accessible from any platform that supports HTTP.
+3. Decoupled: The client and server are independent, which allows for separate development and deployment.
+4. Performance: With the ability to cache responses, REST APIs can reduce server load and latency.
+
+#### REST vs. Other API Architectures
+1. SOAP (Simple Object Access Protocol): A protocol for exchanging structured information in web services, often using XML. It is more rigid and requires more bandwidth due to its XML messaging format.
+2. GraphQL: An alternative to REST, where clients can request specific data structures, reducing over-fetching and under-fetching of data.
+
+####Conclusion
+
+A REST API is a powerful and flexible way to create web services. It leverages HTTP methods and a stateless, client-server architecture to provide a scalable and maintainable way to interact with resources. Understanding and implementing REST principles can greatly enhance the design and functionality of web applications.
