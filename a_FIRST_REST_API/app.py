@@ -160,7 +160,7 @@ def create_songs(music_store_name):
     return target_song_list
 
 
-# Given its(music store's) name, retrieve an individual music store and all its songs.
+# Given its(music store's) name, retrieve an individual music store and all its songs
 @app.route("/music_store/<string:music_store_name>")
 def get_music_store(music_store_name):
     for music_store in music_stores:
@@ -168,7 +168,7 @@ def get_music_store(music_store_name):
             return music_store
     return {"message":"Store not found"},404
 
-# Given a music store name, retrieve only a list of songs within it.
+# Given a music store name, retrieve only a list of songs within it
 @app.route("/music_store/<string:music_store_name>/song")
 def get_music_store_songs(music_store_name):
     for music_store in music_stores:
